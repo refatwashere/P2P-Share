@@ -20,10 +20,11 @@ jobs:
         run: |
           if [ -f package.json ]; then npm install; fi
 
-     - name: 🚀 Deploy to GitHub Pages
+      - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./client
           publish_branch: gh-pages        # This creates it if it doesn't exist
           force_orphan: true              # Ensures a clean history
+
