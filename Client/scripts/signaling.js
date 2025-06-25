@@ -2,7 +2,7 @@
 import { io } from "https://cdn.socket.io/4.7.2/socket.io.esm.min.js";
 
 export function initSignaling(myId, onSignal) {
-    const socket = io("https://your-signal-server.com");
+    const socket = io("https://p2p-share-xw0i.onrender.com");
 
     socket.on("connect", () => {
         socket.emit("join", myId);
