@@ -1,0 +1,17 @@
+{
+  "name": "p2p-signaling-server",
+  "version": "1.0.0",
+  "description": "WebSocket-based signaling server for P2P file transfer using WebRTC",
+  "main": "signaling-server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node signaling-server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
+  },
+  "author": "Robiul Islam Refat",
+  "license": "MIT"
+}

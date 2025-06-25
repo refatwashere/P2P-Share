@@ -1,0 +1,36 @@
+{
+  "name": "P2P File Transfer",
+  "short_name": "FileXfer",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#1f2937",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+{
+  "version": "1.0.0",
+  "description": "A simple P2P file transfer application using WebRTC.",
+  "author": "Robiul Islam Refat",
+  "license": "MIT",
+  "permissions": [
+    "networking",
+    "fileSystem"
+  ],
+  "features": [
+    "WebRTC",
+    "File Transfer",
+    "P2P Communication"
+  ]
+}

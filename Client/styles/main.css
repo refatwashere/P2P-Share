@@ -1,0 +1,98 @@
+/* main.css */
+
+/* Tailwind Preflight (optional if using CDN-based Tailwind) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom font (Inter) */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #111827; /* Tailwind gray-900 */
+  color: #ffffff;
+}
+
+/* Device Card Hover & Dropzone State */
+.device-card {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.device-card:hover {
+  background-color: #374151; /* gray-700 */
+  transform: scale(1.02);
+}
+.device-card.dragover {
+  background-color: #4b5563; /* gray-600 */
+}
+
+/* Progress Modal */
+#progress-modal {
+  backdrop-filter: blur(4px);
+}
+#progress-fill {
+  transition: width 0.3s ease-in-out, background-color 0.3s ease;
+}
+#progress-fill.animated-bar {
+  animation: pulse-bar 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-bar {
+  0%, 100% { background-color: #2563eb; }  /* blue-600 */
+  50%       { background-color: #3b82f6; }  /* blue-500 */
+}
+
+/* QR Code Modal */
+#qr-modal {
+  animation: fade-in 0.2s ease forwards;
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Scrollbar (optional aesthetic tweak) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #4b5563;
+  border-radius: 4px;
+}
+/* Light Mode Styles */
+body.light-mode {
+  background-color: #f9fafb; /* Tailwind gray-50 */
+  color: #1f2937;             /* Tailwind gray-800 */
+}
+
+body.light-mode .device-card {
+  background-color: #ffffff;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+}
+body.light-mode .device-card:hover {
+  background-color: #f3f4f6;
+}
+
+body.light-mode #progress-modal,
+body.light-mode #qr-modal {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #111827;
+}
+
+body.light-mode #progress-fill.animated-bar {
+  background-color: #3b82f6;
+}
+
+body.light-mode .bg-gray-800,
+body.light-mode .bg-gray-700 {
+  background-color: #ffffff !important;
+}
+
+body.light-mode .text-white {
+  color: #1f2937 !important;
+}
+body.light-mode .text-gray-400 {
+  color: #4b5563 !important;
+}
+body.light-mode .text-gray-500 {
+  color: #6b7280 !important;
+}

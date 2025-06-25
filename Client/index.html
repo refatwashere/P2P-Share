@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>P2P File Transfer</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#1f2937" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .animated-bar {
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      background-size: 200% 100%;
+      animation: loading 2s infinite linear;
+    }
+    @keyframes loading {
+      from { background-position: 0% 0%; }
+      to { background-position: 100% 0%; }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div id="devices-list" class="p-4 space-y-4"></div>
+    <!-- Device list, file input, modals go here -->
+  </div>
+  <div id="progress-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
+    <div class="bg-gray-800 text-white p-6 rounded-xl w-full max-w-sm text-center">
+      <h2 class="text-2xl font-bold mb-4">File Transfer</h2>
+      <p id="progress-status" class="text-gray-400 text-sm mb-2">Starting...</p>
+      <div class="w-full bg-gray-700 rounded-full h-4 mb-2">
+       <div id="progress-fill" class="bg-blue-600 h-4 rounded-full transition-all duration-300" style="width: 0%"></div>
+      </div>
+      <p id="progress-text" class="font-bold text-lg">0%</p>
+    </div>
+    <div id="progress-fill" class="animated-bar h-4 rounded-full" style="width: 0%"></div>
+    <button id="cancel-transfer" class="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Cancel</button>
+  </div>
+  <section class="mt-6 p-4 bg-gray-800 rounded-xl text-white">
+  <h2 class="text-lg font-bold mb-2">Transfer History</h2>
+  <ul id="history-list" class="space-y-1 text-sm text-gray-300"></ul>
+  <div id="qr-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
+  <div class="bg-gray-800 p-6 rounded-xl text-white text-center relative">
+    <button id="close-qr-btn" class="absolute top-2 right-3 text-white text-xl">&times;</button>
+    <h2 class="text-xl font-bold mb-4">Scan to Connect</h2>
+    <div id="qrcode" class="bg-white p-2 inline-block rounded"></div>
+    <p class="mt-3 text-sm text-gray-400 break-all" id="qr-device-id"></p>
+  </div>
+</div>
+  <section id="device-list-section" class="mt-6 p-4 bg-gray-800 rounded-xl text-white">
+    <h2 class="text-lg font-bold mb-2">Available Devices</h2>
+    <ul id="devices-list" class="space-y-2"></ul>
+  </section>
+  <section id="qr-section" class="mt-6 p-4 bg-gray-800 rounded-xl text-white">
+    <h2 class="text-lg font-bold mb-2">Share Your Device</h2>
+    <p class="text-sm text-gray-400 mb-4">Click the button below to generate a QR code for your device.</p>
+<button id="share-qr-btn" class="bg-teal-600 hover:bg-teal-500 text-white px-4 py-2 rounded">Show My QR</button>  
+</section>
+  <section id="file-transfer-section" class="mt-6 p-4 bg-gray-800 rounded-xl text-white">
+    <h2 class="text-lg font-bold mb-2">File Transfer</h2>
+    <input type="file" id="file-input" class="mb-4 p-2 bg-gray-700 rounded text-white" />
+    <button id="send-file-btn" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Send File</button>
+  </section>
+  <button id="mode-toggle" class="fixed top-4 right-4 bg-gray-700 text-white px-3 py-1 rounded shadow">
+  Toggle Mode
+</button>
+  <div id="status-bar" class="fixed bottom-0 left-0 w-full bg-gray-900 text-white p-2 text-center">
+    <span id="status-text">Ready</span>
+  </div>
+  <div id="error-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
+    <div class="bg-red-800 text-white p-6 rounded-xl w-full max-w-sm text-center">
+      <h2 class="text-2xl font-bold mb-4">Error</h2>
+      <p id="error-message" class="text-red-300"></p>
+      <button id="close-error-btn" class="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Close</button>
+    </div>
+  </div>
+</section>  <!-- Import main logic -->
+  <script type="module" src="scripts/main.js"></script>
+</body>
+</html>
