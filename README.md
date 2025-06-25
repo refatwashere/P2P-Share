@@ -1,3 +1,4 @@
+[![Deploy Client to GitHub Pages](https://github.com/refatwashere/P2P-Share/actions/workflows/deploy-client.yml/badge.svg)](https://github.com/refatwashere/P2P-Share/actions/workflows/deploy-client.yml)
 # 📡 P2P File Transfer (WebRTC + WebSocket)
 
 A fast, modern, Firebase-free, modular web app for peer-to-peer file transfer across devices using WebRTC. Features QR code sharing, chunked transfers, theme switching, local history, and offline-ready PWA support.
